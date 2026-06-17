@@ -83,7 +83,7 @@ open a machine terminal in your `Repos` folder:
 
 ```shell
 # Replace username with YOUR GitHub username.
-git clone https://github.com/username/datafun-06-applied
+git clone https://github.com/sum-randow/datafun-06-applied
 
 cd datafun-06-applied
 code .
@@ -139,37 +139,7 @@ You accidentally started Python interactive mode.
 It happens.
 Press `Ctrl+c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
 
-## Example Output (Can Remove this Section after You Verify)
 
-```shell
- | INFO | P06 | --- Section 9: Summary and next steps ---
- | INFO | P06 | ========================
- | INFO | P06 | SUMMARY
- | INFO | P06 | ========================
- | INFO | P06 | Dataset: owid-co2-data-subset
- | INFO | P06 | Original rows: 350
- | INFO | P06 | Clean rows:    308
- | INFO | P06 | Groups found in country: ['Brazil', 'Canada', 'China', 'France', 'Germany', 'India', 'Japan', 'United Kingdom', 'United States', 'World']
- | INFO | P06 | ======================
- | INFO | P06 | Review the results.
- | INFO | P06 | Determine the strongest correlations.
- | INFO | P06 | ======================
- | INFO | P06 | Look for interesting patterns in the charts.
- | INFO | P06 | Repeat the process, exploring additional angles.
- | INFO | P06 | After finding interesting insights, conclude your analysis.
- | INFO | P06 | ======================
- | INFO | P06 | Include instructions and specifics in your README.md file.
- | INFO | P06 | Write up your narrative on your docs/index.md file.
- | INFO | P06 | Include your next step suggestions for further analysis or modeling.
- | INFO | P06 | ======================
- | INFO | P06 | ----- in a script, call plt.show() once at the end to display all charts -----
- | INFO | P06 | ----- in a script, close the chart windows (with the close button) to continue  -----
- | INFO | P06 | EDA workflow complete
- | INFO | P06 | IMPORTANT: This script creates chart windows.
- | INFO | P06 | Close any chart windows and terminate this process with CTRL+c as needed.
- | INFO | P06 | ========================
- | INFO | P06 | Executed successfully!
- | INFO | P06 | ========================
 ```
 
 ## Findings and Visuals
