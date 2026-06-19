@@ -1709,3 +1709,365 @@ gdp             0.263472  0.977864       -0.053033    0.940825  1.000000
 2026-06-18 18:40:26 | INFO | P06 | shell=zsh
 2026-06-18 18:40:26 | INFO | P06 | cwd=.
 2026-06-18 18:40:26 | INFO | P06 | github_actions=False
+2026-06-19 16:50:38 | INFO | P06-NB | === RUN START ===
+2026-06-19 16:50:38 | INFO | P06-NB | project=P06-NB
+2026-06-19 16:50:38 | INFO | P06-NB | repo_dir=datafun-06-applied
+2026-06-19 16:50:38 | INFO | P06-NB | python=3.14.6
+2026-06-19 16:50:38 | INFO | P06-NB | os=Darwin 25.5.0
+2026-06-19 16:50:38 | INFO | P06-NB | shell=zsh
+2026-06-19 16:50:38 | INFO | P06-NB | cwd=notebooks
+2026-06-19 16:50:38 | INFO | P06-NB | github_actions=False
+2026-06-19 16:50:38 | INFO | P06-NB | Imports complete.
+2026-06-19 16:51:06 | INFO | P06-NB | Loading dataset: yellow_taxi_2020_jan11_apr11_raw
+2026-06-19 16:51:06 | INFO | P06-NB | Loaded: 225015 rows, 18 columns
+2026-06-19 16:51:07 | INFO | P06-NB | After sampling: 15000 rows, 20 columns
+2026-06-19 16:51:07 | INFO | P06-NB | Saved sampled dataset to data/raw/yellow_taxi_2020_jan11_apr11_raw_sample.csv
+2026-06-19 16:52:17 | INFO | P06-NB | Previewing first few rows of the dataset
+2026-06-19 16:52:38 | INFO | P06-NB | Column names
+2026-06-19 16:53:11 | INFO | P06-NB | Building starter data dictionary
+2026-06-19 16:53:11 | DEBUG | P06-NB | 
+                   column    dtype  missing_count  missing_pct
+0                VendorID  float64            342         2.28
+1    tpep_pickup_datetime      str              0         0.00
+2   tpep_dropoff_datetime      str              0         0.00
+3         passenger_count  float64            342         2.28
+4           trip_distance  float64              0         0.00
+5              RatecodeID  float64            342         2.28
+6      store_and_fwd_flag      str            342         2.28
+7            PULocationID    int64              0         0.00
+8            DOLocationID    int64              0         0.00
+9            payment_type  float64            342         2.28
+10            fare_amount  float64              0         0.00
+11                  extra  float64              0         0.00
+12                mta_tax  float64              0         0.00
+13             tip_amount  float64              0         0.00
+14           tolls_amount  float64              0         0.00
+15  improvement_surcharge  float64              0         0.00
+16           total_amount  float64              0         0.00
+17   congestion_surcharge  float64              0         0.00
+18            pickup_date   object              0         0.00
+19                 period      str              0         0.00
+2026-06-19 16:54:15 | INFO | P06-NB | Missing values per column:
+2026-06-19 16:54:16 | INFO | P06-NB | VendorID                 342
+tpep_pickup_datetime       0
+tpep_dropoff_datetime      0
+passenger_count          342
+trip_distance              0
+RatecodeID               342
+store_and_fwd_flag       342
+PULocationID               0
+DOLocationID               0
+payment_type             342
+fare_amount                0
+extra                      0
+mta_tax                    0
+tip_amount                 0
+tolls_amount               0
+improvement_surcharge      0
+total_amount               0
+congestion_surcharge       0
+pickup_date                0
+period                     0
+dtype: int64
+2026-06-19 16:54:16 | INFO | P06-NB | Checking missing values per column
+2026-06-19 16:54:16 | DEBUG | P06-NB | 
+VendorID                 342
+passenger_count          342
+RatecodeID               342
+store_and_fwd_flag       342
+payment_type             342
+mta_tax                    0
+pickup_date                0
+congestion_surcharge       0
+total_amount               0
+improvement_surcharge      0
+tolls_amount               0
+tip_amount                 0
+fare_amount                0
+extra                      0
+tpep_pickup_datetime       0
+DOLocationID               0
+PULocationID               0
+trip_distance              0
+tpep_dropoff_datetime      0
+period                     0
+dtype: int64
+2026-06-19 16:54:16 | INFO | P06-NB | Duplicate rows detected: 16
+2026-06-19 16:54:16 | INFO | P06-NB | Call describe() for numeric columns
+2026-06-19 16:54:16 | DEBUG | P06-NB | 
+       trip_distance   fare_amount  passenger_count    tip_amount
+count   15000.000000  15000.000000     14658.000000  15000.000000
+mean        2.866480     12.538901         1.455929      2.130867
+std         4.115563     13.104814         1.112430      2.680793
+min       -29.100000    -52.000000         0.000000      0.000000
+25%         0.930000      6.000000         1.000000      0.000000
+50%         1.550000      9.000000         1.000000      1.940000
+75%         2.800000     13.500000         1.000000      2.842500
+max       109.310000    578.500000         6.000000    117.280000
+
+2026-06-19 16:54:52 | DEBUG | P06-NB | Columns required to be non-missing: ['trip_distance', 'fare_amount', 'passenger_count', 'tip_amount', 'period']
+2026-06-19 16:54:52 | INFO | P06-NB | Original rows: 15000
+2026-06-19 16:54:52 | INFO | P06-NB | Clean rows:    14658
+2026-06-19 16:54:52 | INFO | P06-NB | Rows dropped:  342
+2026-06-19 16:56:00 | INFO | P06-NB | --------------- Manual statistics ---------------
+2026-06-19 16:56:00 | DEBUG | P06-NB | fare_amount Statistics (using numpy):
+2026-06-19 16:56:00 | DEBUG | P06-NB |   Mean: 12.11
+2026-06-19 16:56:00 | DEBUG | P06-NB |   Std Dev: 12.78
+2026-06-19 16:56:00 | DEBUG | P06-NB |   Min: -52.00
+2026-06-19 16:56:00 | DEBUG | P06-NB |   Max: 578.50
+2026-06-19 16:56:00 | DEBUG | P06-NB |   Range: 630.50
+2026-06-19 16:56:34 | INFO | P06-NB | Computing overall descriptive statistics
+2026-06-19 16:56:35 | DEBUG | P06-NB | 
+                   count       mean        std   min   25%   50%    75%     max
+trip_distance    14658.0   2.757234   3.951433   0.0  0.91  1.52   2.70  109.31
+fare_amount      14658.0  12.107494  12.780062 -52.0  6.00  8.50  13.00  578.50
+passenger_count  14658.0   1.455929   1.112430   0.0  1.00  1.00   1.00    6.00
+tip_amount       14658.0   2.177777   2.691170   0.0  0.00  1.96   2.86  117.28
+2026-06-19 16:56:35 | INFO | P06-NB | --------------- Using pandas groupby() and agg() ---------------
+2026-06-19 16:56:35 | INFO | P06-NB | Computing descriptive statistics by group
+2026-06-19 16:56:35 | DEBUG | P06-NB | 
+         trip_distance                                  fare_amount                                     \
+                 count      mean       std  min     max       count       mean        std   min    max   
+period                                                                                                   
+Apr 2020           495  2.898667  6.145827  0.0  109.31         495  11.880000  27.951056 -20.0  578.5   
+Jan 2020         14163  2.752290  3.852441  0.0   66.59       14163  12.115444  11.907347 -52.0  349.0   
+
+         passenger_count                               tip_amount                                   
+                   count      mean       std  min  max      count      mean       std  min     max  
+period                                                                                              
+Apr 2020             495  1.234343  0.978324  0.0  6.0        495  1.659596  5.750439  0.0  117.28  
+Jan 2020           14163  1.463673  1.116060  0.0  6.0      14163  2.195887  2.516418  0.0   40.69  
+2026-06-19 16:56:50 | INFO | P06-NB | --------------- Improving the output ---------------
+2026-06-19 16:56:50 | DEBUG | P06-NB | 
+                          count       mean        std   min     max
+period                                                             
+Apr 2020 trip_distance      495   2.898667   6.145827   0.0  109.31
+         fare_amount        495  11.880000  27.951056 -20.0  578.50
+         passenger_count    495   1.234343   0.978324   0.0    6.00
+         tip_amount         495   1.659596   5.750439   0.0  117.28
+Jan 2020 trip_distance    14163   2.752290   3.852441   0.0   66.59
+         fare_amount      14163  12.115444  11.907347 -52.0  349.00
+         passenger_count  14163   1.463673   1.116060   0.0    6.00
+         tip_amount       14163   2.195887   2.516418   0.0   40.69
+2026-06-19 16:57:57 | INFO | P06-NB | Computing correlation matrix for numeric columns
+2026-06-19 16:57:57 | INFO | P06-NB | 
+Correlation matrix:
+2026-06-19 16:57:57 | DEBUG | P06-NB | 
+                 trip_distance  fare_amount  passenger_count  tip_amount
+trip_distance         1.000000     0.867274         0.020401    0.564737
+fare_amount           0.867274     1.000000         0.023083    0.623202
+passenger_count       0.020401     0.023083         1.000000    0.005150
+tip_amount            0.564737     0.623202         0.005150    1.000000
+2026-06-19 16:59:05 | INFO | P06-NB | ---------Visualize Correlation Matrix as a Heatmap---------------
+2026-06-19 17:02:29 | INFO | P06-NB | ---------Visualize Correlation Matrix as a Heatmap---------------
+2026-06-19 17:02:29 | INFO | P06-NB | Saved heatmap to docs/images/Figure_5.png
+2026-06-19 17:05:38 | INFO | P06-NB | ---- Creating Scatter Plot to see Relationships ------
+2026-06-19 17:05:38 | INFO | P06-NB | ----   Use clean dataframe ---------------------------
+2026-06-19 17:05:38 | INFO | P06-NB | ----   Set x to Trip Distance (miles) -----------------------
+2026-06-19 17:05:38 | INFO | P06-NB | ----   Set y to Fare Amount ($) --------------------------
+2026-06-19 17:05:38 | INFO | P06-NB | ----   Set the hue (color mapping) to the group column --
+2026-06-19 17:05:38 | INFO | P06-NB | Saved scatter plot to docs/images/Figure_6.png
+2026-06-19 17:07:31 | INFO | P06-NB | ------- Creating another chart -------
+2026-06-19 17:07:31 | INFO | P06-NB | ------ Creating Box Plot to see Distribution: ---------
+2026-06-19 17:07:31 | INFO | P06-NB | ------   Use clean dataframe --------------------------
+2026-06-19 17:07:31 | INFO | P06-NB | ------   Set x to the group column --------------------
+2026-06-19 17:07:31 | INFO | P06-NB | ------   Set y to Tip Amount ($) ----------------------
+2026-06-19 17:08:59 | INFO | P06-NB | ------- Creating another chart -------
+2026-06-19 17:08:59 | INFO | P06-NB | ------ Creating Box Plot to see Distribution: ---------
+2026-06-19 17:08:59 | INFO | P06-NB | ------   Use clean dataframe --------------------------
+2026-06-19 17:08:59 | INFO | P06-NB | ------   Set x to the group column --------------------
+2026-06-19 17:08:59 | INFO | P06-NB | ------   Set y to Tip Amount ($) ----------------------
+2026-06-19 17:08:59 | INFO | P06-NB | Saved box plot to docs/images/Figure_7.png
+2026-06-19 17:13:36 | INFO | P06-NB | ========================
+2026-06-19 17:13:36 | INFO | P06-NB | SUMMARY
+2026-06-19 17:13:36 | INFO | P06-NB | ========================
+2026-06-19 17:13:36 | INFO | P06-NB | Dataset: yellow_taxi_2020_jan11_apr11_raw
+2026-06-19 17:13:36 | INFO | P06-NB | Original rows: 15000
+2026-06-19 17:13:36 | INFO | P06-NB | Clean rows:    14658
+2026-06-19 17:13:36 | INFO | P06-NB | Groups found in period: ['Apr 2020', 'Jan 2020']
+2026-06-19 17:13:36 | INFO | P06-NB | EDA workflow complete
+2026-06-19 17:13:36 | INFO | P06-NB | ========================
+2026-06-19 17:13:36 | INFO | P06-NB | Executed successfully!
+2026-06-19 17:13:36 | INFO | P06-NB | ========================
+2026-06-19 17:14:14 | INFO | P06-NB | === RUN START ===
+2026-06-19 17:14:14 | INFO | P06-NB | project=P06-NB
+2026-06-19 17:14:14 | INFO | P06-NB | repo_dir=datafun-06-applied
+2026-06-19 17:14:14 | INFO | P06-NB | python=3.14.6
+2026-06-19 17:14:14 | INFO | P06-NB | os=Darwin 25.5.0
+2026-06-19 17:14:14 | INFO | P06-NB | shell=zsh
+2026-06-19 17:14:14 | INFO | P06-NB | cwd=notebooks
+2026-06-19 17:14:14 | INFO | P06-NB | github_actions=False
+2026-06-19 17:14:14 | INFO | P06-NB | Imports complete.
+2026-06-19 17:14:14 | INFO | P06-NB | Loading dataset: yellow_taxi_2020_jan11_apr11_raw
+2026-06-19 17:14:14 | INFO | P06-NB | Loaded: 225015 rows, 18 columns
+2026-06-19 17:14:15 | INFO | P06-NB | After sampling: 15000 rows, 20 columns
+2026-06-19 17:14:15 | INFO | P06-NB | Saved sampled dataset to data/raw/yellow_taxi_2020_jan11_apr11_raw_sample.csv
+2026-06-19 17:14:15 | INFO | P06-NB | Previewing first few rows of the dataset
+2026-06-19 17:14:15 | INFO | P06-NB | Column names
+2026-06-19 17:14:15 | INFO | P06-NB | Building starter data dictionary
+2026-06-19 17:14:15 | DEBUG | P06-NB | 
+                   column    dtype  missing_count  missing_pct
+0                VendorID  float64            342         2.28
+1    tpep_pickup_datetime      str              0         0.00
+2   tpep_dropoff_datetime      str              0         0.00
+3         passenger_count  float64            342         2.28
+4           trip_distance  float64              0         0.00
+5              RatecodeID  float64            342         2.28
+6      store_and_fwd_flag      str            342         2.28
+7            PULocationID    int64              0         0.00
+8            DOLocationID    int64              0         0.00
+9            payment_type  float64            342         2.28
+10            fare_amount  float64              0         0.00
+11                  extra  float64              0         0.00
+12                mta_tax  float64              0         0.00
+13             tip_amount  float64              0         0.00
+14           tolls_amount  float64              0         0.00
+15  improvement_surcharge  float64              0         0.00
+16           total_amount  float64              0         0.00
+17   congestion_surcharge  float64              0         0.00
+18            pickup_date   object              0         0.00
+19                 period      str              0         0.00
+2026-06-19 17:14:15 | INFO | P06-NB | Missing values per column:
+2026-06-19 17:14:15 | INFO | P06-NB | VendorID                 342
+tpep_pickup_datetime       0
+tpep_dropoff_datetime      0
+passenger_count          342
+trip_distance              0
+RatecodeID               342
+store_and_fwd_flag       342
+PULocationID               0
+DOLocationID               0
+payment_type             342
+fare_amount                0
+extra                      0
+mta_tax                    0
+tip_amount                 0
+tolls_amount               0
+improvement_surcharge      0
+total_amount               0
+congestion_surcharge       0
+pickup_date                0
+period                     0
+dtype: int64
+2026-06-19 17:14:15 | INFO | P06-NB | Checking missing values per column
+2026-06-19 17:14:15 | DEBUG | P06-NB | 
+VendorID                 342
+passenger_count          342
+RatecodeID               342
+store_and_fwd_flag       342
+payment_type             342
+mta_tax                    0
+pickup_date                0
+congestion_surcharge       0
+total_amount               0
+improvement_surcharge      0
+tolls_amount               0
+tip_amount                 0
+fare_amount                0
+extra                      0
+tpep_pickup_datetime       0
+DOLocationID               0
+PULocationID               0
+trip_distance              0
+tpep_dropoff_datetime      0
+period                     0
+dtype: int64
+2026-06-19 17:14:15 | INFO | P06-NB | Duplicate rows detected: 16
+2026-06-19 17:14:15 | INFO | P06-NB | Call describe() for numeric columns
+2026-06-19 17:14:15 | DEBUG | P06-NB | 
+       trip_distance   fare_amount  passenger_count    tip_amount
+count   15000.000000  15000.000000     14658.000000  15000.000000
+mean        2.866480     12.538901         1.455929      2.130867
+std         4.115563     13.104814         1.112430      2.680793
+min       -29.100000    -52.000000         0.000000      0.000000
+25%         0.930000      6.000000         1.000000      0.000000
+50%         1.550000      9.000000         1.000000      1.940000
+75%         2.800000     13.500000         1.000000      2.842500
+max       109.310000    578.500000         6.000000    117.280000
+
+2026-06-19 17:14:15 | DEBUG | P06-NB | Columns required to be non-missing: ['trip_distance', 'fare_amount', 'passenger_count', 'tip_amount', 'period']
+2026-06-19 17:14:15 | INFO | P06-NB | Original rows: 15000
+2026-06-19 17:14:15 | INFO | P06-NB | Clean rows:    14658
+2026-06-19 17:14:15 | INFO | P06-NB | Rows dropped:  342
+2026-06-19 17:14:15 | INFO | P06-NB | --------------- Manual statistics ---------------
+2026-06-19 17:14:15 | DEBUG | P06-NB | fare_amount Statistics (using numpy):
+2026-06-19 17:14:15 | DEBUG | P06-NB |   Mean: 12.11
+2026-06-19 17:14:15 | DEBUG | P06-NB |   Std Dev: 12.78
+2026-06-19 17:14:15 | DEBUG | P06-NB |   Min: -52.00
+2026-06-19 17:14:15 | DEBUG | P06-NB |   Max: 578.50
+2026-06-19 17:14:15 | DEBUG | P06-NB |   Range: 630.50
+2026-06-19 17:14:15 | INFO | P06-NB | Computing overall descriptive statistics
+2026-06-19 17:14:15 | DEBUG | P06-NB | 
+                   count       mean        std   min   25%   50%    75%     max
+trip_distance    14658.0   2.757234   3.951433   0.0  0.91  1.52   2.70  109.31
+fare_amount      14658.0  12.107494  12.780062 -52.0  6.00  8.50  13.00  578.50
+passenger_count  14658.0   1.455929   1.112430   0.0  1.00  1.00   1.00    6.00
+tip_amount       14658.0   2.177777   2.691170   0.0  0.00  1.96   2.86  117.28
+2026-06-19 17:14:15 | INFO | P06-NB | --------------- Using pandas groupby() and agg() ---------------
+2026-06-19 17:14:15 | INFO | P06-NB | Computing descriptive statistics by group
+2026-06-19 17:14:15 | DEBUG | P06-NB | 
+         trip_distance                                  fare_amount                                     \
+                 count      mean       std  min     max       count       mean        std   min    max   
+period                                                                                                   
+Apr 2020           495  2.898667  6.145827  0.0  109.31         495  11.880000  27.951056 -20.0  578.5   
+Jan 2020         14163  2.752290  3.852441  0.0   66.59       14163  12.115444  11.907347 -52.0  349.0   
+
+         passenger_count                               tip_amount                                   
+                   count      mean       std  min  max      count      mean       std  min     max  
+period                                                                                              
+Apr 2020             495  1.234343  0.978324  0.0  6.0        495  1.659596  5.750439  0.0  117.28  
+Jan 2020           14163  1.463673  1.116060  0.0  6.0      14163  2.195887  2.516418  0.0   40.69  
+2026-06-19 17:14:15 | INFO | P06-NB | --------------- Improving the output ---------------
+2026-06-19 17:14:15 | DEBUG | P06-NB | 
+                          count       mean        std   min     max
+period                                                             
+Apr 2020 trip_distance      495   2.898667   6.145827   0.0  109.31
+         fare_amount        495  11.880000  27.951056 -20.0  578.50
+         passenger_count    495   1.234343   0.978324   0.0    6.00
+         tip_amount         495   1.659596   5.750439   0.0  117.28
+Jan 2020 trip_distance    14163   2.752290   3.852441   0.0   66.59
+         fare_amount      14163  12.115444  11.907347 -52.0  349.00
+         passenger_count  14163   1.463673   1.116060   0.0    6.00
+         tip_amount       14163   2.195887   2.516418   0.0   40.69
+2026-06-19 17:14:15 | INFO | P06-NB | Computing correlation matrix for numeric columns
+2026-06-19 17:14:15 | INFO | P06-NB | 
+Correlation matrix:
+2026-06-19 17:14:15 | DEBUG | P06-NB | 
+                 trip_distance  fare_amount  passenger_count  tip_amount
+trip_distance         1.000000     0.867274         0.020401    0.564737
+fare_amount           0.867274     1.000000         0.023083    0.623202
+passenger_count       0.020401     0.023083         1.000000    0.005150
+tip_amount            0.564737     0.623202         0.005150    1.000000
+2026-06-19 17:14:15 | INFO | P06-NB | ---------Visualize Correlation Matrix as a Heatmap---------------
+2026-06-19 17:14:15 | INFO | P06-NB | Saved heatmap to docs/images/Figure_5.png
+2026-06-19 17:14:15 | INFO | P06-NB | ---- Creating Scatter Plot to see Relationships ------
+2026-06-19 17:14:15 | INFO | P06-NB | ----   Use clean dataframe ---------------------------
+2026-06-19 17:14:15 | INFO | P06-NB | ----   Set x to Trip Distance (miles) -----------------------
+2026-06-19 17:14:15 | INFO | P06-NB | ----   Set y to Fare Amount ($) --------------------------
+2026-06-19 17:14:15 | INFO | P06-NB | ----   Set the hue (color mapping) to the group column --
+2026-06-19 17:14:16 | INFO | P06-NB | Saved scatter plot to docs/images/Figure_6.png
+2026-06-19 17:14:16 | INFO | P06-NB | ------- Creating another chart -------
+2026-06-19 17:14:16 | INFO | P06-NB | ------ Creating Box Plot to see Distribution: ---------
+2026-06-19 17:14:16 | INFO | P06-NB | ------   Use clean dataframe --------------------------
+2026-06-19 17:14:16 | INFO | P06-NB | ------   Set x to the group column --------------------
+2026-06-19 17:14:16 | INFO | P06-NB | ------   Set y to Tip Amount ($) ----------------------
+2026-06-19 17:14:16 | INFO | P06-NB | Saved box plot to docs/images/Figure_7.png
+2026-06-19 17:14:16 | INFO | P06-NB | ========================
+2026-06-19 17:14:16 | INFO | P06-NB | SUMMARY
+2026-06-19 17:14:16 | INFO | P06-NB | ========================
+2026-06-19 17:14:16 | INFO | P06-NB | Dataset: yellow_taxi_2020_jan11_apr11_raw
+2026-06-19 17:14:16 | INFO | P06-NB | Original rows: 15000
+2026-06-19 17:14:16 | INFO | P06-NB | Clean rows:    14658
+2026-06-19 17:14:16 | INFO | P06-NB | Groups found in period: ['Apr 2020', 'Jan 2020']
+2026-06-19 17:14:16 | INFO | P06-NB | EDA workflow complete
+2026-06-19 17:14:16 | INFO | P06-NB | ========================
+2026-06-19 17:14:16 | INFO | P06-NB | Executed successfully!
+2026-06-19 17:14:16 | INFO | P06-NB | ========================
+2026-06-19 17:20:19 | INFO | P06 | === RUN START ===
+2026-06-19 17:20:19 | INFO | P06 | project=P06
+2026-06-19 17:20:19 | INFO | P06 | repo_dir=datafun-06-applied
+2026-06-19 17:20:19 | INFO | P06 | python=3.14.6
+2026-06-19 17:20:19 | INFO | P06 | os=Darwin 25.5.0
+2026-06-19 17:20:19 | INFO | P06 | shell=zsh
+2026-06-19 17:20:19 | INFO | P06 | cwd=.
+2026-06-19 17:20:19 | INFO | P06 | github_actions=False

@@ -111,6 +111,7 @@ uvx pre-commit run --all-files
 # run the example module and verify the environment (.venv/)
 uv run python -m datafun.app_case
 
+
 # do chores
 uv run python -m pyright
 uv run python -m pytest
@@ -142,30 +143,51 @@ Press `Ctrl+c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
 
 ```
 
+## Process
+
+1. Identified the source dataset: NYC Yellow Taxi Trip Data, published by the
+   NYC Taxi and Limousine Commission (TLC) via the NYC Open Data portal.
+2. The full dataset contained 112,234,626 rows, far too large to work with directly.
+3. Filtered the data at the source (using the portal's Data tab) to two single days
+   for comparison: January 11, 2020 (pre-COVID) and April 11, 2020 (during COVID
+   lockdown), both Saturdays. This reduced the dataset to approximately 200,000 rows.
+4. Exported the filtered data as CSV and saved it to `data/raw/` as
+   `yellow_taxi_2020_jan11_apr11_raw.csv`. This file is excluded from GitHub via
+   `.gitignore` due to its size.
+5. In the notebook, loaded the raw CSV (225,015 rows) and created a `period` column
+   by parsing `tpep_pickup_datetime` into "Jan 2020" or "Apr 2020".
+6. Randomly sampled the data down to 15,000 rows (`random_state=42` for
+   reproducibility) and saved the result as `yellow_taxi_2020_jan11_apr11_raw_sample.csv`,
+   which is committed to the repository.
+7. Cleaned the sampled data by dropping rows with missing values in required columns
+   (`trip_distance`, `fare_amount`, `passenger_count`), reducing the dataset from
+   15,000 to 14,658 rows.
+8. Reviewed descriptive statistics, a correlation matrix, and visualizations
+   (scatter plot and box plot) grouped by `period`.
+
 ## Findings and Visuals
 
-Take screenshots of your charts and provide them here with a discussion.
-In Markdown, display a figure by using:
-an exclamation mark immediately followed by square brackets containing a useful caption
-immediately followed by parentheses containing the relative path to your figure.
-Note: When you start typing the path with a dot (.) for "here, in this directory",
-the IDE may help complete the path.
+![Correlation Heatmap of Taxi Trip Variables](./docs/images/Figure_5.png)
 
-In your custom project, follow this example, but
+The heatmap shows a strong positive correlation between `trip_distance` and
+`fare_amount` (0.87), and a moderate positive correlation between `fare_amount`
+and `tip_amount` (0.62). `passenger_count` showed little relationship to any
+other variable.
 
-- your figures and narrative should reflect your work,
-- this `README.md` should include your commands, process, and visuals, and
-- `docs/index.md` should include your narrative.
+![Trip Distance vs Fare Amount, by Period (Jan vs Apr 2020)](./docs/images/Figure_6.png)
 
-Remove unnecessary instructional comments in your custom files.
+This scatter plot shows the strong distance/fare relationship holding across
+both periods. It also reveals a striking outlier: a ~110-mile, $578.50 trip
+recorded on April 11, 2020, during the height of NYC's COVID lockdown.
 
-Update these figures to present interesting results from your custom project:
+![Tip Amount Distribution by Period, Showing a COVID-Era Outlier](./docs/images/Figure_7.png)
 
-![Correlation Heatmap](./docs/images/Figure_1.png)
+Despite a much smaller sample size, April 2020 tips followed a similar overall
+distribution to January, with one notable outlier of approximately $116.
 
-![Provide a Useful Caption](./docs/images/Figure_2.png)
-
-![Provide a Useful Caption](./docs/images/Figure_3.png)
+The most significant finding: taxi ridership dropped by approximately 96.5%
+between January 11 and April 11, 2020 (14,163 vs. 495 clean trips), reflecting
+the dramatic impact of COVID-19 lockdown measures on NYC transportation.
 
 ## Project Documentation
 

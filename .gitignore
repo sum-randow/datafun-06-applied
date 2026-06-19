@@ -187,3 +187,6 @@ __pycache__/
 # ALT: Comment if logs must be inspected or validated.
 # *.log
 logs/
+
+# === Ignore large raw dataset ===
+data/raw/yellow_taxi_2020_jan11_apr11_raw.csv
