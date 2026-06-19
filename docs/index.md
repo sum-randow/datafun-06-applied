@@ -22,3 +22,24 @@ to get these projects running on your machine.
 The API page is not always easy to read at first,
 but it becomes useful as you get more comfortable with project structure,
 modules, functions, and docstrings.
+
+## Custom Project
+
+### Basis
+
+Describe the dataset, input, source material, example, or workflow you started with
+
+### Phase 4 Modifications
+
+I changed the scatter plot in Section 8 to compare Population vs. CO2 Emissions instead of GDP vs. CO2 Emissions, using a renamed copy of the dataset (owid-co2-data-subset_sum-randow). I chose this to see whether population size predicts emissions as well as GDP does. Since the notebook is parameterized, I only needed to update SCATTER_X_COL and SCATTER_X_LABEL in Section 1 — Section 8 picked up the change automatically.
+
+I verified the change by running the notebook end-to-end. The chart's title, axis labels, and data updated correctly, the figure saved successfully to docs/images/Figure_4.png, and the notebook completed with no errors.
+
+### Phase 5 Custom Project
+
+Describe your custom project,
+what you changed from the example,
+what results you produced, and what you learned.
+Include in your reflection an assessment of
+how much you exercised the skills and techniques covered
+and what problems you could apply them to in the future.
