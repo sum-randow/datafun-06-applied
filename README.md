@@ -142,6 +142,21 @@ Press `Ctrl+c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
 
 
 ```
+```
+## Commands
+
+Commands used to set up and run this custom project:
+
+```bash
+uv sync --extra dev --extra docs --upgrade
+uvx pre-commit run --all-files
+
+uv run python -m datafun.app_case
+
+git add -A
+git commit -m "Phase 5 - 2020 NYC TaxiCab Use"
+git push -u origin main
+```
 
 ## Process
 
@@ -202,3 +217,4 @@ Additional instructions, terms, and project notes:
 ## License
 
 [MIT](./LICENSE)
+```
